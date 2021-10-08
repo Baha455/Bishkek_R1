@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Bishkek Rielt</string>
+    <string name="title_home">Каталог</string>
+    <string name="title_dashboard">Избранное</string>
+    <string name="title_notifications">Профиль</string>
+    <string name="priceFormat">%1s KGS/мес</string>
+</resources>
