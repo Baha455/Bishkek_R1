@@ -3,11 +3,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.bishkekrielt.R
 import com.example.bishkekrielt.data.model.Data
 import com.example.bishkekrielt.databinding.FragmentHomeBinding
 import com.example.bishkekrielt.ui.RvAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment(){
@@ -41,8 +47,12 @@ class HomeFragment : Fragment(){
     }
 
 
-    private fun toItemActivity() {}
+    private fun toItemActivity() {
+        val destination = HomeFragmentDirections.actionNavigationHomeToItemFragment2()
+        findNavController().navigate(destination)
+        /*val nav = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        nav?.visibility = View.GONE*/
 
-
+    }
 
 }
