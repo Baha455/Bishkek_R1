@@ -4,14 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bishkekrielt.R
-import com.example.bishkekrielt.data.model.ItemInfo
 import com.example.bishkekrielt.data.model.Recatalog
 import com.example.bishkekrielt.databinding.RecyclerViewBinding
 import com.example.bishkekrielt.ui.home.HomeViewModel
 import com.squareup.picasso.Picasso
 
 
-class RvAdapter(private val vm: HomeViewModel, private val listener: (list: List<ItemInfo>?) -> Unit) : RecyclerView.Adapter<RvAdapter.MyViewHolder>() {
+class RvAdapter(private val vm: HomeViewModel, private val listener: (Recatalog) -> Unit) : RecyclerView.Adapter<RvAdapter.MyViewHolder>() {
 
     var items1 = arrayListOf<Recatalog>()
 
@@ -45,7 +44,7 @@ class RvAdapter(private val vm: HomeViewModel, private val listener: (list: List
     ): RecyclerView.ViewHolder(binding.root){
 
 
-        fun bind(reCatalog: Recatalog, listener: (list: List<ItemInfo>?) -> Unit){
+        fun bind(reCatalog: Recatalog, listener: (list: Recatalog) -> Unit){
             binding.price.text =  itemView.context.getString(R.string.priceFormat, reCatalog.price)
             binding.info.text = reCatalog.title
             binding.addres.text = reCatalog.location
@@ -53,7 +52,7 @@ class RvAdapter(private val vm: HomeViewModel, private val listener: (list: List
                 .load(reCatalog.image)
                 .into(binding.image1)
             binding.itemConstr.setOnClickListener{
-                listener.invoke(reCatalog.iteminfo)
+                listener.invoke(reCatalog)
             }
         }
     }
