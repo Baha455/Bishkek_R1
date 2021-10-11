@@ -18,4 +18,10 @@
         parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/nokia_sans_regular</item>
     </style>
+
+
+    <style name="Theme.BishkekRielt.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

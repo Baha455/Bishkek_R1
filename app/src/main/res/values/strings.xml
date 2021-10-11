@@ -4,4 +4,6 @@
     <string name="title_dashboard">Избранное</string>
     <string name="title_notifications">Профиль</string>
     <string name="priceFormat">%1s KGS/мес</string>
+    <string name="roomsFormat">%1s комн.</string>
+    <string name="areaFormat">%1s м²</string>
 </resources>

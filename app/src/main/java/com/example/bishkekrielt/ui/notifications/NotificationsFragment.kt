@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.bishkekrielt.R
+import com.example.bishkekrielt.data.common.BaseFragment
 
-class NotificationsFragment : Fragment() {
+class NotificationsFragment : BaseFragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
+    override fun resID() = R.layout.fragment_notifications
 
     override fun onCreateView(
             inflater: LayoutInflater,

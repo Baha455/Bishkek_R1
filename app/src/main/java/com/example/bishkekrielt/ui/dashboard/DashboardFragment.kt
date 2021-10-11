@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.bishkekrielt.R
+import com.example.bishkekrielt.data.common.BaseFragment
 
 class DashboardFragment : Fragment() {
 
