@@ -48,7 +48,6 @@ class ItemFragment: Fragment() {
     }
 
     private fun back(){
-
         binding?.btnBack?.setOnClickListener{
             findNavController().popBackStack()
         }

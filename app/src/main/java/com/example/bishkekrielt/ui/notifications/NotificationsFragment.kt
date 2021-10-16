@@ -10,24 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.bishkekrielt.R
 import com.example.bishkekrielt.data.common.BaseFragment
+import com.example.bishkekrielt.databinding.FragmentHomeBinding
+import com.example.bishkekrielt.databinding.FragmentNotificationsBinding
+import com.example.bishkekrielt.ui.dashboard.DashboardViewModel
+import com.example.bishkekrielt.ui.home.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class NotificationsFragment : BaseFragment() {
+class NotificationsFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
-    override fun resID() = R.layout.fragment_notifications
+    var binding: FragmentNotificationsBinding? = null
+    private val vm by viewModel<NotificationsViewModel>()
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        notificationsViewModel =
-                ViewModelProvider(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentNotificationsBinding.inflate(layoutInflater)
+        return  binding?.root
     }
 }

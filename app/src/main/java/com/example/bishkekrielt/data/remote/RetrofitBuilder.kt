@@ -20,7 +20,6 @@ object RetrofitBuilder {
 
     fun buildRetrofit(): SharesService{
         return Retrofit.Builder()
-                //.baseUrl("http://api.openweathermap.org/")
                 .baseUrl("http://my-json-server.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(getClient())

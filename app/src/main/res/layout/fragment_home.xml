@@ -25,12 +25,13 @@
             android:layout_marginEnd="5dp"
             android:paddingStart="10dp"
             android:paddingEnd="5dp"
-            android:hint="Фильтры"
+            android:hint="@string/searchHint"
             android:fontFamily="@font/nokia_sans_regular"
             android:inputType="textCapSentences"
             android:background="@drawable/ed_search"
             android:drawableStart="@drawable/ic_baseline_search_24"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/filtre"
@@ -42,7 +43,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:backgroundTint="@color/white"
             android:textColor="@color/yellow"
-            android:text="Фильтр"
+            android:text="@string/filtr"
             android:fontFamily="@font/nokia_sans_regular"
             style="@style/Widget.AppCompat.Button.Borderless"/>
 

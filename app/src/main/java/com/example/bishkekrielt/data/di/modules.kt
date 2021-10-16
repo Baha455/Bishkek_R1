@@ -1,7 +1,7 @@
 package com.example.onlinestore.data.di
 
-import com.example.bishkekrielt.data.interactors.RieltInteractor
-import com.example.bishkekrielt.data.interactors.RieltInteractorImp
+import com.example.bishkekrielt.data.repository.Repository
+import com.example.bishkekrielt.data.repository.RepositoryImp
 import com.example.bishkekrielt.data.remote.RetrofitBuilder
 import com.example.bishkekrielt.data.remote.SharesService
 import com.example.bishkekrielt.ui.home.HomeViewModel
@@ -14,13 +14,13 @@ val viewModelModule: Module = module {
 }
 
 val repositoryModule: Module = module {
+    single<Repository>{RepositoryImp(get())}
 }
 
 val apiModule: Module = module {
         single<SharesService> { RetrofitBuilder.buildRetrofit() }
-        single< RieltInteractor> {RieltInteractorImp(get()) }
 
 }
 
 val appModules =
-    listOf(viewModelModule, apiModule)
+    listOf(viewModelModule, apiModule, repositoryModule)

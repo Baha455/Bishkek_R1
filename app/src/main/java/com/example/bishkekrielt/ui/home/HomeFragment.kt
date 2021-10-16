@@ -6,8 +6,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.example.bishkekrielt.R
-import com.example.bishkekrielt.data.common.BaseFragment
 import com.example.bishkekrielt.data.model.Recatalog
 import com.example.bishkekrielt.databinding.FragmentHomeBinding
 import com.example.bishkekrielt.ui.RvAdapter
@@ -19,6 +17,7 @@ class HomeFragment : Fragment(){
     private val vm by viewModel<HomeViewModel>()
     private val adapter by lazy { RvAdapter(vm) {
         toItemActivity(it)} }
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
