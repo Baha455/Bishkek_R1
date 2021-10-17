@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.bishkekrielt.databinding.FragmentMapBinding
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
@@ -15,6 +16,7 @@ import com.yandex.mapkit.map.CameraPosition
 
 class MapFragment: Fragment(){
     var binding: FragmentMapBinding? = null
+    val args: MapFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         MapKitFactory.initialize(context)
@@ -30,8 +32,9 @@ class MapFragment: Fragment(){
     }
 
     private fun setUpMapView(){
+        val item = args.reCatalog
         binding?.mapView?.map?.move(
-            CameraPosition(Point(42.863759, 74.547556), 18.0f, 0.0f, 0.0f),
+            CameraPosition(Point(item.latitude, item.longitude), 18.0f, 0.0f, 0.0f),
             Animation(Animation.Type.SMOOTH, 0F), null
         )
     }

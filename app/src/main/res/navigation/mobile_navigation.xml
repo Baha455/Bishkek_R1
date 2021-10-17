@@ -42,5 +42,9 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.bishkekrielt.ui.item.MapFragment"
-        android:label="MapFragment" />
+        android:label="MapFragment" >
+        <argument
+            android:name="reCatalog"
+            app:argType="com.example.bishkekrielt.data.model.Recatalog" />
+    </fragment>
 </navigation>

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.bishkekrielt.R
+import com.example.bishkekrielt.data.model.Recatalog
 import com.example.bishkekrielt.databinding.FragmentItemBinding
 import com.example.bishkekrielt.ui.home.ItemViewModel
 import com.squareup.picasso.Picasso
@@ -31,7 +32,7 @@ class ItemFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        back()
+        setupListener()
         setupView()
         setUpMapView()
     }
@@ -50,23 +51,29 @@ class ItemFragment: Fragment() {
 
     }
 
-    private fun back(){
+    private fun setupListener(){
         binding?.btnBack?.setOnClickListener{
             findNavController().popBackStack()
+        }
+
+        binding?.mapView?.setOnClickListener{
+            toMapFragment(args.reCatalog)
         }
     }
 
     private fun setUpMapView(){
-        binding?.mapView?.setOnClickListener{
-            val destination = ItemFragmentDirections.actionItemFragment2ToMapFragment()
-            findNavController().navigate(destination)
-        }
+        val item = args.reCatalog
         binding?.mapView?.setNoninteractive(true)
         binding?.mapView?.map?.move(
-            CameraPosition(Point(42.863759, 74.547556), 18.0f, 0.0f, 0.0f),
+            CameraPosition(Point(item.latitude, item.longitude), 18.0f, 0.0f, 0.0f),
             Animation(Animation.Type.SMOOTH, 0F), null
         )
 
+    }
+
+    private fun toMapFragment(data: Recatalog){
+        val destination = ItemFragmentDirections.actionItemFragment2ToMapFragment(data)
+        findNavController().navigate(destination)
     }
 
     override fun onStart() {

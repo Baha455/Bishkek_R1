@@ -13,6 +13,8 @@ data class Recatalog (
     @SerializedName("area") val area : String,
     @SerializedName("kitchen") val kitchen : String,
     @SerializedName("floor") val floor : String,
-    @SerializedName("rooms") val rooms : Int)
-    : Parcelable
+    @SerializedName("rooms") val rooms : Int,
+    @SerializedName("latitude") val latitude: Double,
+    @SerializedName("longitude") val longitude: Double
+): Parcelable
 
