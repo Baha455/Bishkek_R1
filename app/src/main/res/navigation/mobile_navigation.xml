@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/itemFragment2"
-        android:name="com.example.bishkekrielt.ui.home.ItemFragment"
+        android:name="com.example.bishkekrielt.ui.item.ItemFragment"
         android:label="fragment_item"
         tools:layout="@layout/fragment_item" >
         <action
@@ -31,9 +31,16 @@
         <argument
             android:name="reCatalog"
             app:argType="com.example.bishkekrielt.data.model.Recatalog" />
+        <action
+            android:id="@+id/action_itemFragment2_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
     <activity
         android:id="@+id/mainActivity"
         android:name="com.example.bishkekrielt.MainActivity"
         android:label="MainActivity" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.bishkekrielt.ui.item.MapFragment"
+        android:label="MapFragment" />
 </navigation>

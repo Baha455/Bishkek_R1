@@ -1,4 +1,4 @@
-package com.example.bishkekrielt.ui.home
+package com.example.bishkekrielt.ui.item
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.bishkekrielt.R
-import com.example.bishkekrielt.databinding.FragmentHomeBinding
 import com.example.bishkekrielt.databinding.FragmentItemBinding
+import com.example.bishkekrielt.ui.home.ItemViewModel
 import com.squareup.picasso.Picasso
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
-import com.yandex.mapkit.mapview.MapView
-import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ItemFragment: Fragment() {
@@ -59,6 +57,10 @@ class ItemFragment: Fragment() {
     }
 
     private fun setUpMapView(){
+        binding?.mapView?.setOnClickListener{
+            val destination = ItemFragmentDirections.actionItemFragment2ToMapFragment()
+            findNavController().navigate(destination)
+        }
         binding?.mapView?.setNoninteractive(true)
         binding?.mapView?.map?.move(
             CameraPosition(Point(42.863759, 74.547556), 18.0f, 0.0f, 0.0f),
