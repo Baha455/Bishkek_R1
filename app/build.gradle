@@ -73,4 +73,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
 
     implementation "androidx.viewpager2:viewpager2:1.1.0-beta01"
+    implementation 'com.yandex.android:maps.mobile:4.0.0-lite'
+}
+
+repositories {
+    maven {
+        url "http://maven.google.com/"
+    }
 }
