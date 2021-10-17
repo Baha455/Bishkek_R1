@@ -25,7 +25,7 @@ class ItemFragment: Fragment() {
     val args: ItemFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        MapKitFactory.setApiKey("3b93339d-bcba-43ed-a270-a92079534723")
+        //MapKitFactory.setApiKey("3b93339d-bcba-43ed-a270-a92079534723")
         MapKitFactory.initialize(context)
         binding = FragmentItemBinding.inflate(layoutInflater)
         return  binding?.root
@@ -61,7 +61,7 @@ class ItemFragment: Fragment() {
 
     private fun setUpMapView(){
         binding?.mapView?.map?.move(
-            CameraPosition(Point(42.863759, 74.547556), 11.0f, 0.0f, 0.0f),
+            CameraPosition(Point(42.863759, 74.547556), 18.0f, 0.0f, 0.0f),
             Animation(Animation.Type.SMOOTH, 0F), null
         )
     }
