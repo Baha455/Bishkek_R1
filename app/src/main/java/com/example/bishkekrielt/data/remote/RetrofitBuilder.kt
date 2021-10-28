@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitBuilder {
 
-    private var service: SharesService? = null
+    private var service: RetrofitService? = null
 
-    fun getService(): SharesService? {
+    fun getService(): RetrofitService? {
         if (service == null)
             service = buildRetrofit()
 
@@ -18,19 +18,19 @@ object RetrofitBuilder {
     }
 
 
-    fun buildRetrofit(): SharesService{
+    fun buildRetrofit(): RetrofitService{
         return Retrofit.Builder()
                 .baseUrl("http://my-json-server.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(getClient())
                 .build()
-                .create(SharesService::class.java)
+                .create(RetrofitService::class.java)
     }
 
 
-    private fun getClient(): OkHttpClient{
+    private fun getClient(): OkHttpClient {
         return OkHttpClient.Builder()
-                .connectTimeout(10,TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
                 .readTimeout(10,TimeUnit.SECONDS)
                 .writeTimeout(10,TimeUnit.SECONDS)
                 .addInterceptor(provideLoggingInterceptor())

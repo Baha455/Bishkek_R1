@@ -10,7 +10,6 @@ import androidx.navigation.fragment.navArgs
 import com.example.bishkekrielt.R
 import com.example.bishkekrielt.data.model.Recatalog
 import com.example.bishkekrielt.databinding.FragmentItemBinding
-import com.example.bishkekrielt.ui.home.ItemViewModel
 import com.squareup.picasso.Picasso
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory

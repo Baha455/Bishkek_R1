@@ -2,7 +2,7 @@ package com.example.bishkekrielt.data.repository
 
 
 import com.example.bishkekrielt.data.model.Data
-import com.example.bishkekrielt.data.remote.SharesService
+import com.example.bishkekrielt.data.remote.RetrofitService
 import retrofit2.Response
 
 interface Repository {
@@ -10,7 +10,7 @@ interface Repository {
 
 }
 
-class RepositoryImp(private val service: SharesService) : Repository {
+class RepositoryImp(private val service: RetrofitService) : Repository {
     override suspend fun loadDescription(): Response<Data> {
         return service.getShares()
     }

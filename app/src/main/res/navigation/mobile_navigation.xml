@@ -47,4 +47,8 @@
             android:name="reCatalog"
             app:argType="com.example.bishkekrielt.data.model.Recatalog" />
     </fragment>
+    <activity
+        android:id="@+id/splashScreenActivity"
+        android:name="com.example.bishkekrielt.ui.splash.SplashScreenActivity"
+        android:label="SplashScreenActivity" />
 </navigation>
