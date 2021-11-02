@@ -20,6 +20,7 @@ class HomeFragment : Fragment(){
 
 
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return  binding?.root
@@ -45,7 +46,7 @@ class HomeFragment : Fragment(){
 
 
     private fun toItemActivity(data: Recatalog) {
-        val destination = HomeFragmentDirections.actionNavigationHomeToItemFragment2(data)
+        val destination = HomeFragmentDirections.actionHomeFragmentToItemFragment(data)
         findNavController().navigate(destination)
     }
 

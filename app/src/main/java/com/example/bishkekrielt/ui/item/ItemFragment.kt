@@ -71,7 +71,7 @@ class ItemFragment: Fragment() {
     }
 
     private fun toMapFragment(data: Recatalog){
-        val destination = ItemFragmentDirections.actionItemFragment2ToMapFragment(data)
+        val destination = ItemFragmentDirections.actionItemFragmentToMapFragment(data)
         findNavController().navigate(destination)
     }
 

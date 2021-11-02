@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
+    app:startDestination="@id/homeFragment"
+    android:id="@+id/mobile_navigation">
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/homeFragment"
         android:name="com.example.bishkekrielt.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_navigation_home_to_itemFragment2"
-            app:destination="@id/itemFragment2" />
+            android:id="@+id/action_homeFragment_to_itemFragment"
+            app:destination="@id/itemFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
-
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.bishkekrielt.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
-    <fragment
-        android:id="@+id/itemFragment2"
+        android:id="@+id/itemFragment"
         android:name="com.example.bishkekrielt.ui.item.ItemFragment"
         android:label="fragment_item"
         tools:layout="@layout/fragment_item" >
         <action
-            android:id="@+id/action_itemFragment2_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            android:id="@+id/action_itemFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
         <argument
             android:name="reCatalog"
             app:argType="com.example.bishkekrielt.data.model.Recatalog" />
-        <action
-            android:id="@+id/action_itemFragment2_to_mapFragment"
-            app:destination="@id/mapFragment" />
     </fragment>
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.bishkekrielt.MainActivity"
-        android:label="MainActivity" />
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.bishkekrielt.ui.item.MapFragment"
@@ -47,8 +38,8 @@
             android:name="reCatalog"
             app:argType="com.example.bishkekrielt.data.model.Recatalog" />
     </fragment>
-    <activity
-        android:id="@+id/splashScreenActivity"
-        android:name="com.example.bishkekrielt.ui.splash.SplashScreenActivity"
-        android:label="SplashScreenActivity" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.bishkekrielt.ui.notifications.NotificationsFragment"
+        android:label="NotificationsFragment" />
 </navigation>
