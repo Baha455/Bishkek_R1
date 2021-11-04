@@ -1,4 +1,4 @@
-package com.example.bishkekrielt.ui
+package com.example.bishkekrielt.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,6 @@ import com.example.bishkekrielt.R
 import com.example.bishkekrielt.data.model.Recatalog
 import com.example.bishkekrielt.databinding.RecyclerViewBinding
 import com.example.bishkekrielt.ui.home.HomeViewModel
-import com.squareup.picasso.Picasso
 
 
 class RvAdapter(private val vm: HomeViewModel, private val listener: (Recatalog) -> Unit) : RecyclerView.Adapter<RvAdapter.MyViewHolder>() {
@@ -48,9 +47,9 @@ class RvAdapter(private val vm: HomeViewModel, private val listener: (Recatalog)
             binding.price.text =  itemView.context.getString(R.string.priceFormat, reCatalog.price)
             binding.info.text = reCatalog.title
             binding.addres.text = reCatalog.location
-            Picasso.get()
+            /*Picasso.get()
                 .load(reCatalog.image)
-                .into(binding.image1)
+                .into(binding.image1)*/
             binding.itemConstr.setOnClickListener{
                 listener.invoke(reCatalog)
             }

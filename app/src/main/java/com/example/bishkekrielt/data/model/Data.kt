@@ -5,8 +5,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Data (
-    val catalog: List<Recatalog> )
-    : Parcelable
+     val catalog: List<Recatalog>
+    ):Parcelable
 
 
 

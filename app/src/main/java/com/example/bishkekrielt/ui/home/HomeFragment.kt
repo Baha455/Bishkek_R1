@@ -4,11 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.bishkekrielt.data.model.Recatalog
 import com.example.bishkekrielt.databinding.FragmentHomeBinding
-import com.example.bishkekrielt.ui.RvAdapter
+import com.example.bishkekrielt.ui.adapter.RvAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment(){
@@ -18,12 +17,10 @@ class HomeFragment : Fragment(){
     private val adapter by lazy { RvAdapter(vm) {
         toItemActivity(it)} }
 
-
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return  binding?.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,7 +33,7 @@ class HomeFragment : Fragment(){
 
 
     private fun initVM(){
-        vm.catalog.observe(viewLifecycleOwner, Observer {
+        vm.catalog.observe(viewLifecycleOwner, {
             adapter.updateData(it)
         })
     }

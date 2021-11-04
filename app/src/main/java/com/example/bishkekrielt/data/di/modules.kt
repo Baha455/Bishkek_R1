@@ -1,5 +1,6 @@
 package com.example.bishkekrielt.data.di
 
+import androidx.lifecycle.SavedStateHandle
 import com.example.bishkekrielt.data.remote.RetrofitBuilder
 import com.example.bishkekrielt.data.remote.RetrofitService
 import com.example.bishkekrielt.data.repository.Repository
@@ -10,7 +11,7 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val viewModelModule: Module = module {
-    viewModel { HomeViewModel(get()) }
+    viewModel { HomeViewModel(get(), savedStateHandle = SavedStateHandle()) }
 }
 
 val repositoryModule: Module = module {

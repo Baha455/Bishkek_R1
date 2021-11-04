@@ -10,7 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.bishkekrielt.R
 import com.example.bishkekrielt.data.model.Recatalog
 import com.example.bishkekrielt.databinding.FragmentItemBinding
-import com.squareup.picasso.Picasso
+import com.example.bishkekrielt.ui.adapter.ViewPagerAdapter
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -21,6 +21,9 @@ class ItemFragment: Fragment() {
     private val vm by viewModel<ItemViewModel>()
     var binding: FragmentItemBinding? = null
     val args: ItemFragmentArgs by navArgs()
+    private val slideAdapter by lazy { ViewPagerAdapter{
+
+    }}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         MapKitFactory.initialize(context)
@@ -34,7 +37,9 @@ class ItemFragment: Fragment() {
         setupListener()
         setupView()
         setUpMapView()
+        initViewPager()
     }
+
 
     private fun setupView(){
         val item = args.reCatalog
@@ -44,10 +49,16 @@ class ItemFragment: Fragment() {
         binding?.rooms?.text = context?.getString(R.string.roomsFormat, item.rooms.toString())
         binding?.floor?.text = item.floor
         binding?.tvLocation?.text = item.location
-        Picasso.get()
-            .load(item.image)
-            .into(binding?.scrollImage)
+        item.images.let { slideAdapter.update(it) }
 
+        /*Picasso.get()
+            .load(item.image)
+            .into(binding?.scrollImage)*/
+
+    }
+
+    private fun initViewPager(){
+        binding?.scrollImage?.adapter = slideAdapter
     }
 
     private fun setupListener(){
