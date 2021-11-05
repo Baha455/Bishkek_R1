@@ -14,7 +14,7 @@ class HomeFragment : Fragment(){
 
     var binding: FragmentHomeBinding? = null
     private val vm by viewModel<HomeViewModel>()
-    private val adapter by lazy { RvAdapter(vm) {
+    private val adapter by lazy { RvAdapter() {
         toItemActivity(it)} }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

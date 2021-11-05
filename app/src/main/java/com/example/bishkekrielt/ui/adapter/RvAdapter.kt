@@ -9,7 +9,7 @@ import com.example.bishkekrielt.databinding.RecyclerViewBinding
 import com.example.bishkekrielt.ui.home.HomeViewModel
 
 
-class RvAdapter(private val vm: HomeViewModel, private val listener: (Recatalog) -> Unit) : RecyclerView.Adapter<RvAdapter.MyViewHolder>() {
+class RvAdapter(private val listener: (Recatalog) -> Unit) : RecyclerView.Adapter<RvAdapter.MyViewHolder>() {
 
     var items1 = arrayListOf<Recatalog>()
 
@@ -17,7 +17,7 @@ class RvAdapter(private val vm: HomeViewModel, private val listener: (Recatalog)
         val binding =
             RecyclerViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return MyViewHolder(binding, vm)
+        return MyViewHolder(binding)
     }
 
     fun updateData(list: List<Recatalog>){
@@ -35,23 +35,25 @@ class RvAdapter(private val vm: HomeViewModel, private val listener: (Recatalog)
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(items1[position], listener)
 
+
     }
 
     class MyViewHolder(
-    private val binding: RecyclerViewBinding,
-    private val vm: HomeViewModel
-    ): RecyclerView.ViewHolder(binding.root){
+    private val binding: RecyclerViewBinding): RecyclerView.ViewHolder(binding.root){
 
+        private val slideAdapter by lazy { ViewPagerAdapter{
+
+        } }
 
         fun bind(reCatalog: Recatalog, listener: (list: Recatalog) -> Unit){
             binding.price.text =  itemView.context.getString(R.string.priceFormat, reCatalog.price)
             binding.info.text = reCatalog.title
             binding.addres.text = reCatalog.location
-            /*Picasso.get()
-                .load(reCatalog.image)
-                .into(binding.image1)*/
+            reCatalog.images.let { slideAdapter.update(it) }
+            binding.image1.adapter = slideAdapter
             binding.itemConstr.setOnClickListener{
                 listener.invoke(reCatalog)
+
             }
         }
     }
