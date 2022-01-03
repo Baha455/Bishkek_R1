@@ -21,9 +21,11 @@
             android:layout_height="wrap_content">
 
             <androidx.viewpager2.widget.ViewPager2
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
                 android:id="@+id/scrollImage"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_height="250dp"
                 app:layout_constraintTop_toTopOf="parent"/>
             
             <androidx.constraintlayout.widget.ConstraintLayout
